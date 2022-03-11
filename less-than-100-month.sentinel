@@ -1,5 +1,5 @@
-import "tfrun"
-import "decimal"
+# import "tfrun"
+# import "decimal"
 
 # delta_monthly_cost = decimal.new(tfrun.cost_estimate.delta_monthly_cost)
 
@@ -7,12 +7,19 @@ import "decimal"
 #    delta_monthly_cost.less_than(3)
 # }
 
+
+# Import common-functions/tfrun-functions/tfrun-functions.sentinel
+# with alias "run"
+import "tfrun-functions" as run
+# The standard decimal import
+import "decimal"
+
 # Monthly Limit
 limit = decimal.new(3)
 
 # Call the validation function
 # Warnings will be printed for violations
-cost_validated = tfrun.limit_proposed_monthly_cost(limit)
+cost_validated = run.limit_proposed_monthly_cost(limit)
 
 # Main rule
 main = rule {
